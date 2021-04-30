@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container">
+		<h1>RELEASE INSTANCE</h1>
+		<hr>
+		<form action="#" th:action="@{/releaseInstance}" th:object="${instance}"
+			method="POST">
+			<input type="text" th:field="*{instance_name}"
+				placeholder="Instance name" class="form-control mb-4 col-4">
+				<button type="submit" class="btn btn-info col-2"> RELEASE INSTANCE</button>
+		</form>
+		
+		<hr>
+
+	</div>
+</body>
+</html>

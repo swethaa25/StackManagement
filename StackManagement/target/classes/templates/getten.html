@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>STACK USAGE</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+	<div class="text-center">
+	</div>
+		<table border="1" class = "table table-hover table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>
+						EMPLOYEE ID
+					</th>
+					<th>
+						EMPLOYEE NAME
+					</th>
+					<th>
+						EMAIL
+					</th>
+					<th>
+						STACK
+					</th>
+					<th>
+						TIME_STAMP
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="employee: ${top}">
+					<td th:text="${employee.Employeeid}"></td>
+					<td th:text="${employee.firstName}"></td>
+					<td th:text="${employee.email}"></td>
+					<td th:text="${employee.stack}"></td>
+					<td th:text="${employee.time_stamp}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<a th:href = "@{http://localhost:8080/}" class="btn btn-primary btn-sm mb-3"> HOME </a><br>
+	</div>
+</body>
+</html>
