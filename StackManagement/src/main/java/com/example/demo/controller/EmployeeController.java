@@ -133,11 +133,6 @@ public class EmployeeController {
 		return  "getten";
 	}
 	
-	@GetMapping("/logout")
-	public String logout()
-	{
-		return "login";
-	}
 	
 	@GetMapping("/addInstance")
 	public String add(Model model)
@@ -154,6 +149,13 @@ public class EmployeeController {
 		List<Instance> instances=instrepo.findAll();
 		model.addAttribute("instance", instances);
 		return "home";
+	}
+	@GetMapping("/searchInstance/{name}")
+	public String search(@PathVariable ( value = "name") String name, Model model)
+	{
+		Instance instance=instrepo.searchbyname(name);
+		model.addAttribute("instance", instance);
+		return "searchInstance";
 	}
 	@GetMapping("/deleteInstance")
 	public String delete(Model model)
