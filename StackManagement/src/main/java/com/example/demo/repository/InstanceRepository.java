@@ -18,6 +18,7 @@ public interface InstanceRepository extends JpaRepository<Instance, Long>{
 	void savebyname(String status,String instance_name);
 	
 	
-	//Instance findByinstance_name(String name);
+	@Query(value = "SELECT * FROM instance i WHERE i.instance_name = ?1", nativeQuery = true)
+	Instance searchbyname(String instance_name);
 	
 }
