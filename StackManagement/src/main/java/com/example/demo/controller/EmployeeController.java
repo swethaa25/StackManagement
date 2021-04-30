@@ -93,12 +93,20 @@ public class EmployeeController {
 		String stack=employee.getStack();
 		String time_stamp=employee.getTime_stamp();
 		long Employeeid=employee.getEmployeeid();
-		System.out.println(Employeeid);
-		employeerepo.savebyinsert(Employeeid, firstName, email, stack, time_stamp);
-		instrepo.savebyname("NA",stack);
-		List<Instance> instances=instrepo.findAll();
-		model.addAttribute("instance", instances);
-		return "home";
+		String instance_status= employeerepo.status(stack);
+		if(instance_status.equals("A"))
+		{
+			employeerepo.savebyinsert(Employeeid, firstName, email, stack, time_stamp);
+			instrepo.savebyname("NA",stack);
+			List<Instance> instances=instrepo.findAll();
+			model.addAttribute("instance", instances);
+			return "home";
+		}
+		else
+		{
+			throw new RuntimeException(" VM IN USE!!");
+		}
+		
 	}
 
 	@PostMapping("/releaseInstance")
