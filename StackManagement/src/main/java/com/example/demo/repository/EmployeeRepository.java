@@ -25,5 +25,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long>{
 	  @Query(value = "insert into employee(employeeid,first_name,email,stack,time_stamp) VALUES (:id,:firstName,:email,:stack,:time_stamp)", nativeQuery = true)
 	   @Transactional
 	   void savebyinsert(@Param("id") Long Employeeid,  @Param("firstName")String firstName,@Param("email")String email,@Param("stack")String stack,@Param("time_stamp")String time_stamp);
+	 @Query(value = "SELECT status FROM instance i WHERE i.instance_name = ?1", nativeQuery = true)
+	 String status(String instance_name);
 	
 }
